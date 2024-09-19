@@ -58,6 +58,9 @@ const Navbar = () => {
             <FaSearch className="text-xl cursor-pointer" />
             <a className="btn btn-outline btn-primary px-8">Appointment</a>
           </div>
+          <Link href="/login" className="btn btn-primary mx-5 px-8">
+            Login
+          </Link>
         </div>
       </div>
     </div>

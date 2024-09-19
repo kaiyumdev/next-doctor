@@ -4,7 +4,15 @@ import Link from "next/link";
 import React from "react";
 
 const page = () => {
-  const handleSignUp = () => {};
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    const newUser = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      password: e.target.password.value,
+    };
+    console.log(newUser);
+  };
   return (
     <div className="container px-24 mx-auto py-24">
       <div className="grid grid-cols-2 gap-12 items-center">
