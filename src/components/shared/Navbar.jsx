@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { FaCartPlus, FaSearch } from "react-icons/fa";
 
 const Navbar = () => {
   const navItems = [
@@ -52,7 +53,11 @@ const Navbar = () => {
           </div>
         </div>
         <div className="navbar-end">
-          <a className="btn btn-outline btn-primary px-8">Appointment</a>
+          <div className="flex items-center space-x-3">
+            <FaCartPlus className="text-xl" />
+            <FaSearch className="text-xl" />
+            <a className="btn btn-outline btn-primary px-8">Appointment</a>
+          </div>
         </div>
       </div>
     </div>
