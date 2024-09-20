@@ -1,4 +1,5 @@
 "use client";
+import SocialSignin from "@/components/shared/SocialSignin";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -69,7 +70,7 @@ const page = () => {
           </form>
           <div>
             <h6 className="my-12 text-center">or sign in with</h6>
-            {/* <SocialSignin /> */}
+            <SocialSignin />
             <h6 className="my-12 text-center">
               Already have account ?{" "}
               <Link className="text-primary font-semibold" href={"/login"}>
