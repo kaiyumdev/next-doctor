@@ -16,6 +16,9 @@ const page = () => {
       body: JSON.stringify(newUser),
       headers: { "Content-Type": "application/json" },
     });
+    if (resp.status === 200) {
+      e.target.reset();
+    }
   };
   return (
     <div className="container px-24 mx-auto py-24">
