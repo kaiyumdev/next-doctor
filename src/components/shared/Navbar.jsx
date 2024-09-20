@@ -48,13 +48,15 @@ const Navbar = () => {
               className="rounded-full mx-2"
             />
           </div>
-          {!session.data ? (
-            <Link href="/login" className="btn btn-primary mx-4 px-8">
+          {session?.status === "loading" && <h6>Loading....</h6>}
+          {session?.status === "unauthenticated" && (
+            <Link href="/login" className="btn btn-primary px-8">
               Login
             </Link>
-          ) : (
+          )}
+          {session?.status === "authenticated" && (
             <button
-              className="btn btn-primary mx-4 px-8"
+              className="btn btn-outline btn-ghost px-8"
               onClick={() => signOut()}
             >
               Logout
