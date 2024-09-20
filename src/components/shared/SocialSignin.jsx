@@ -11,10 +11,7 @@ const SocialSignin = () => {
   const path = searchParams.get("redirect");
   const session = useSession();
   const handleSocialLogin = (provider) => {
-    const resp = signIn(provider, {
-      redirect: true,
-      callbackUrl: path ? path : "/",
-    });
+    const resp = signIn(provider);
   };
 
   return (
