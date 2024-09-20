@@ -1,7 +1,7 @@
 import { connectDB } from "@/lib/connectDB";
 import NextAuth from "next-auth/next";
-import credentialsProvider from "next-auth/providers/credentials";
-import { bcrypt } from "bcrypt";
+import CredentialsProvider from "next-auth/providers/credentials";
+import bcrypt from "bcrypt";
 
 const handler = NextAuth({
   session: {
@@ -9,7 +9,7 @@ const handler = NextAuth({
     maxAge: 30 * 24 * 60 * 60,
   },
   providers: [
-    credentialsProvider({
+    CredentialsProvider({
       credentials: {
         email: {},
         password: {},
@@ -26,7 +26,7 @@ const handler = NextAuth({
         }
         const passwordMatched = bcrypt.compareSync(
           password,
-          currentUser.password
+          currentUser?.password
         );
         if (!passwordMatched) {
           return null;
