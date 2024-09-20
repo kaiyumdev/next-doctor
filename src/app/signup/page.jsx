@@ -4,14 +4,18 @@ import Link from "next/link";
 import React from "react";
 
 const page = () => {
-  const handleSignUp = (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
     const newUser = {
       name: e.target.name.value,
       email: e.target.email.value,
       password: e.target.password.value,
     };
-    console.log(newUser);
+    const resp = fetch("http://localhost:3000/signup/api", {
+      method: "POST",
+      body: JSON.stringify(newUser),
+      headers: { "Content-Type": "application/json" },
+    });
   };
   return (
     <div className="container px-24 mx-auto py-24">
