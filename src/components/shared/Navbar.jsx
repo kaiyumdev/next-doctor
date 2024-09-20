@@ -39,6 +39,15 @@ const Navbar = () => {
             <FaSearch className="text-xl cursor-pointer" />
             <a className="btn btn-outline btn-primary px-8">Appointment</a>
           </div>
+          <div>
+            <Image
+              alt={session?.data?.user?.name}
+              src={session?.data?.user?.image}
+              height={50}
+              width={50}
+              className="rounded-full"
+            />
+          </div>
           {!session.data ? (
             <Link href="/login" className="btn btn-primary mx-4 px-8">
               Login
