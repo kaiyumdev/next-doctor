@@ -1,10 +1,22 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import React from "react";
+import { signIn } from "next-auth/react";
 
 const page = () => {
-  const handleLogin = () => {};
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    const resp = signIn("credentials", {
+      email,
+      password,
+      redirect: false,
+    });
+    console.log(resp);
+  };
   return (
     <div className="container px-24 mx-auto py-24">
       <div className="grid grid-cols-2 gap-12 items-center">
