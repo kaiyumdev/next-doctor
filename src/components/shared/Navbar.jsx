@@ -45,7 +45,7 @@ const Navbar = () => {
               src={session?.data?.user?.image}
               height={50}
               width={50}
-              className="rounded-full"
+              className="rounded-full mx-2"
             />
           </div>
           {!session.data ? (
