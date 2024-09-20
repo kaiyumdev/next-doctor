@@ -1,10 +1,13 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const page = () => {
+  const router = useRouter();
   const handleLogin = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -15,6 +18,9 @@ const page = () => {
       redirect: false,
     });
     console.log(resp);
+    if (resp.status === 200) {
+      router.push("/");
+    }
   };
   return (
     <div className="container px-24 mx-auto py-24">
