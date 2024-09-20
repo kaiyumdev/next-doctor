@@ -11,7 +11,10 @@ const SocialSignin = () => {
   const path = searchParams.get("redirect");
   const session = useSession();
   const handleSocialLogin = (provider) => {
-    const resp = signIn(provider);
+    const resp = signIn(provider, { redirect: false });
+    if (session.status === "authenticated") {
+      router.push("/");
+    }
   };
 
   return (

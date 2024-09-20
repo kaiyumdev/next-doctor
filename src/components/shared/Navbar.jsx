@@ -39,7 +39,7 @@ const Navbar = () => {
             <FaSearch className="text-xl cursor-pointer" />
             <a className="btn btn-outline btn-primary px-8">Appointment</a>
           </div>
-          <div>
+          {/* <div>
             <Image
               alt={session?.data?.user?.name}
               src={session?.data?.user?.image}
@@ -47,21 +47,23 @@ const Navbar = () => {
               width={50}
               className="rounded-full mx-2"
             />
+          </div> */}
+          <div className="mx-4">
+            {session?.status === "loading" && <h6>Loading....</h6>}
+            {session?.status === "unauthenticated" && (
+              <Link href="/login" className="btn btn-primary px-8">
+                Login
+              </Link>
+            )}
+            {session?.status === "authenticated" && (
+              <button
+                className="btn btn-outline btn-ghost px-8"
+                onClick={() => signOut()}
+              >
+                Logout
+              </button>
+            )}
           </div>
-          {session?.status === "loading" && <h6>Loading....</h6>}
-          {session?.status === "unauthenticated" && (
-            <Link href="/login" className="btn btn-primary px-8">
-              Login
-            </Link>
-          )}
-          {session?.status === "authenticated" && (
-            <button
-              className="btn btn-outline btn-ghost px-8"
-              onClick={() => signOut()}
-            >
-              Logout
-            </button>
-          )}
         </div>
       </div>
     </div>
