@@ -1,5 +1,5 @@
 "use client";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -7,7 +7,6 @@ import { FaCartPlus, FaSearch } from "react-icons/fa";
 
 const Navbar = () => {
   const session = useSession();
-  console.log(session);
   return (
     <div className="bg-slate-400 text-slate-900">
       <div className="navbar container mx-auto">
@@ -40,9 +39,18 @@ const Navbar = () => {
             <FaSearch className="text-xl cursor-pointer" />
             <a className="btn btn-outline btn-primary px-8">Appointment</a>
           </div>
-          <Link href="/login" className="btn btn-primary mx-5 px-8">
-            Login
-          </Link>
+          {!session.data ? (
+            <Link href="/login" className="btn btn-primary mx-4 px-8">
+              Login
+            </Link>
+          ) : (
+            <button
+              className="btn btn-primary mx-4 px-8"
+              onClick={() => signOut()}
+            >
+              Logout
+            </button>
+          )}
         </div>
       </div>
     </div>
