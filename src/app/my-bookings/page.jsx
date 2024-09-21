@@ -1,9 +1,25 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const page = () => {
+  const session = useSession();
+  const [bookings, setBooking] = useState([]);
+  console.log(bookings);
+  const loadData = async () => {
+    const resp = await fetch(
+      `http://localhost:3000/my-bookings/api/${session?.data?.user?.email}`
+    );
+    const data = await resp.json();
+    setBooking(data?.myBookings);
+  };
+
+  useEffect(() => {
+    loadData();
+  }, [session]);
   return (
     <div className="container mx-auto">
       {/* <ToastContainer /> */}
@@ -37,7 +53,7 @@ const page = () => {
             </thead>
             <tbody>
               {/* row 1 */}
-              {/* {bookings?.map(({ serviceTitle, _id, date, price }) => (
+              {bookings?.map(({ serviceTitle, _id, date, price }) => (
                 <tr key={_id}>
                   <th>1</th>
                   <td>{serviceTitle}</td>
@@ -57,7 +73,7 @@ const page = () => {
                     </div>
                   </td>
                 </tr>
-              ))} */}
+              ))}
             </tbody>
           </table>
         </div>
