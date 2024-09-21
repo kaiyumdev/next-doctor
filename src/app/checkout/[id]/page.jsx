@@ -33,6 +33,7 @@ const Checkout = ({ params }) => {
         "content-type": "application/json",
       },
     });
+    console.log(resp);
   };
 
   useEffect(() => {
