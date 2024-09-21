@@ -5,8 +5,6 @@ import React from "react";
 
 const page = async ({ params }) => {
   const details = await getServicesDetails(params.id);
-  console.log(details);
-
   // Destructure the details to extract img, title, description, etc.
   const { img, title, description, facility, price, _id } = details.service;
 

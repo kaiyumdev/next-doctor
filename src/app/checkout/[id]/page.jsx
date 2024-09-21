@@ -1,13 +1,17 @@
+import { getServicesDetails } from "@/services/getServices";
 import Image from "next/image";
 import React from "react";
 
-const page = () => {
+const page = async ({ params }) => {
+  const details = await getServicesDetails(params.id);
+  // Destructure the details to extract img, title, description, etc.
+  const { img, title, description, facility, price, _id } = details.service;
   return (
-    <div>
+    <div className="container mx-auto">
       <div className="relative h-72">
         <Image
           className="absolute h-72 w-full left-0 top-0 object-cover"
-          src={""}
+          src={img}
           alt="service"
           width={1920}
           height={1080}
@@ -15,7 +19,7 @@ const page = () => {
         />
         <div className="absolute h-full left-0 top-0 flex items-center justify-center bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] ">
           <h1 className="text-white text-3xl font-bold flex justify-center items-center ml-8">
-            Details of
+            checkout {title}
           </h1>
         </div>
       </div>
