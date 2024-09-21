@@ -1,8 +1,11 @@
+import { getServicesDetails } from "@/services/getServices";
 import Image from "next/image";
 // import Link from "next/link";
 import React from "react";
 
 const page = async ({ params }) => {
+  const details = getServicesDetails(params.id);
+  console.log(details);
   return (
     <div className="w-11/12 mx-auto my-10">
       <div>
