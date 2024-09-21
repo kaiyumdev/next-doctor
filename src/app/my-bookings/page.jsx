@@ -17,6 +17,21 @@ const page = () => {
     setBooking(data?.myBookings);
   };
 
+  const handleDelete = async (id) => {
+    const deleted = await fetch(
+      `http://localhost:3000/my-bookings/api/booking/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
+    const resp = await deleted.json();
+    console.log(resp);
+    if (resp?.response?.deletedCount > 0) {
+      //   toast.success(resp?.message);
+      loadData();
+    }
+  };
+
   useEffect(() => {
     loadData();
   }, [session]);
