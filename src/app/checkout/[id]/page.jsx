@@ -4,6 +4,7 @@ import { getServicesDetails } from "@/services/getServices";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
 
 const Checkout = ({ params }) => {
   const { data } = useSession();
@@ -33,7 +34,9 @@ const Checkout = ({ params }) => {
         "content-type": "application/json",
       },
     });
-    console.log(resp);
+    const response = await resp?.json();
+    toast.success(response?.message);
+    event.target.reset();
   };
 
   useEffect(() => {
@@ -41,7 +44,7 @@ const Checkout = ({ params }) => {
   }, [params]);
   return (
     <div className="container mx-auto">
-      {/* <ToastContainer /> */}
+      <ToastContainer />
       <div className="relative  h-72">
         <Image
           className="absolute h-72 w-full left-0 top-0 object-cover"
