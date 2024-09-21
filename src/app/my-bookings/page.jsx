@@ -4,6 +4,7 @@ import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const page = () => {
   const session = useSession();
@@ -27,7 +28,7 @@ const page = () => {
     const resp = await deleted.json();
     console.log(resp);
     if (resp?.response?.deletedCount > 0) {
-      //   toast.success(resp?.message);
+      toast.success(resp?.message);
       loadData();
     }
   };
@@ -70,7 +71,7 @@ const page = () => {
               {/* row 1 */}
               {bookings?.map(({ serviceTitle, _id, date, price }) => (
                 <tr key={_id}>
-                  <th>1</th>
+                  <th>{0 + 1}</th>
                   <td>{serviceTitle}</td>
                   <td>{price}</td>
                   <td>{date}</td>
