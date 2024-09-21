@@ -4,7 +4,7 @@ import { getServicesDetails } from "@/services/getServices";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 
 const Checkout = ({ params }) => {
   const { data } = useSession();
