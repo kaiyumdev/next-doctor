@@ -3,6 +3,7 @@
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const page = ({ params }) => {
   const { data } = useSession();
@@ -16,7 +17,27 @@ const page = ({ params }) => {
     console.log(data);
     setBooking(data.data);
   };
-  const handleUpdateBooking = () => {};
+  const handleUpdateBooking = async (event) => {
+    event.preventDefault();
+    const updatedBooking = {
+      date: event.target.date.value,
+      phone: event.target.phone.value,
+      address: event.target.address.value,
+    };
+    const resp = await fetch(
+      `http://localhost:3000/my-bookings/api/booking/${params.id}`,
+      {
+        method: "PATCH",
+        body: JSON.stringify(updatedBooking),
+        headers: {
+          "content-type": "application/json",
+        },
+      }
+    );
+    if (resp.status === 200) {
+      toast.success("Updated Successfully");
+    }
+  };
   useEffect(() => {
     loadBooking();
   }, [params]);

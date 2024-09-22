@@ -33,12 +33,12 @@ export const PATCH = async (request, { params }) => {
         upsert: true,
       }
     );
-    return NextResponse.json({
+    return Response.json({
       message: "updated the booking",
       response: resp,
     });
   } catch (error) {
-    return NextResponse.json({ message: "Something Went Wrong" });
+    return Response.json({ message: "Something Went Wrong" });
   }
 };
 
