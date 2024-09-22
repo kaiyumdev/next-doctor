@@ -15,9 +15,6 @@ const SocialSignin = () => {
       redirect: true,
       callbackUrl: path ? path : "/",
     });
-    // if (session.status === "authenticated") {
-    //   router.push("/");
-    // }
   };
 
   return (

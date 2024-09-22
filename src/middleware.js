@@ -7,6 +7,7 @@ export const middleware = async (request) => {
   if (pathname.includes("api")) {
     return NextResponse.next();
   }
+
   if (!token) {
     return NextResponse.redirect(
       new URL(`/login?redirect=${pathname}`, request.url)

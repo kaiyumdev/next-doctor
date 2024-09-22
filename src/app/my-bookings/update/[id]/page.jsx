@@ -39,7 +39,8 @@ const page = ({ params }) => {
   };
   useEffect(() => {
     loadBooking();
-  }, [params]);
+  }, [loadBooking]); // Add loadBooking to the dependency array
+
   return (
     <div className="container mx-auto">
       <div className="relative  h-72">

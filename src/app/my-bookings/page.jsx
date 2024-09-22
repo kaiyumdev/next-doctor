@@ -8,8 +8,8 @@ import { toast } from "react-toastify";
 
 const page = () => {
   const session = useSession();
+  console.log(session);
   const [bookings, setBooking] = useState([]);
-  console.log(bookings);
   const loadData = async () => {
     const resp = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/my-bookings/api/${session?.data?.user?.email}`
@@ -35,7 +35,7 @@ const page = () => {
 
   useEffect(() => {
     loadData();
-  }, [session]);
+  }, [loadData]); // Add loadData to the dependency array
   return (
     <div className="container mx-auto">
       {/* <ToastContainer /> */}

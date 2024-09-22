@@ -1,15 +1,24 @@
+import axios from "axios";
+
 export const getServices = async () => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/services/api/get-all`
-  );
-  const services = res.json();
-  return services;
+  try {
+    const res = await axios.get(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/services/api/get-all`
+    );
+    return res.data;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
 };
 
 export const getServicesDetails = async (id) => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/services/api/${id}`
-  );
-  const service = res.json();
-  return service;
+  try {
+    const res = await axios.get(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/services/api/${id}`
+    );
+    return res.data;
+  } catch (error) {
+    return {};
+  }
 };

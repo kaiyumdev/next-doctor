@@ -44,7 +44,7 @@ const Checkout = ({ params }) => {
 
   useEffect(() => {
     loadService();
-  }, [params]);
+  }, [loadService]); // Add loadService to the dependency array
   return (
     <div className="container mx-auto">
       <ToastContainer />
