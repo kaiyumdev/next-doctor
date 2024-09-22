@@ -12,7 +12,7 @@
 //       email: e.target.email.value,
 //       password: e.target.password.value,
 //     };
-//     const resp = fetch(`${process.env.NEXT_PUBLIC_BASE_URL}:3000/signup/api`, {
+//     const resp = fetch(`https://next-doctor-zcd4.vercel.app:3000/signup/api`, {
 //       method: "POST",
 //       body: JSON.stringify(newUser),
 //       headers: { "Content-Type": "application/json" },

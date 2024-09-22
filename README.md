@@ -14,7 +14,7 @@ pnpm dev
 bun dev
 ```
 
-Open [${process.env.NEXT_PUBLIC_BASE_URL}](${process.env.NEXT_PUBLIC_BASE_URL}) with your browser to see the result.
+Open [https://next-doctor-zcd4.vercel.app](https://next-doctor-zcd4.vercel.app) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 

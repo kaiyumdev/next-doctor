@@ -12,7 +12,7 @@
 //   const [bookings, setBooking] = useState([]);
 //   const loadData = async () => {
 //     const resp = await fetch(
-//       `${process.env.NEXT_PUBLIC_BASE_URL}/my-bookings/api/${session?.data?.user?.email}`
+//       `https://next-doctor-zcd4.vercel.app/my-bookings/api/${session?.data?.user?.email}`
 //     );
 //     const data = await resp.json();
 //     setBooking(data?.myBookings);
@@ -20,7 +20,7 @@
 
 //   const handleDelete = async (id) => {
 //     const deleted = await fetch(
-//       `${process.env.NEXT_PUBLIC_BASE_URL}/my-bookings/api/booking/${id}`,
+//       `https://next-doctor-zcd4.vercel.app/my-bookings/api/booking/${id}`,
 //       {
 //         method: "DELETE",
 //       }
@@ -114,7 +114,7 @@ const Page = () => {
   const loadData = useCallback(async () => {
     if (session?.user?.email) {
       const resp = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/my-bookings/api/${session.user.email}`
+        `https://next-doctor-zcd4.vercel.app/my-bookings/api/${session.user.email}`
       );
       const data = await resp.json();
       setBookings(data?.myBookings);
@@ -124,7 +124,7 @@ const Page = () => {
   const handleDelete = useCallback(
     async (id) => {
       const deleted = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/my-bookings/api/booking/${id}`,
+        `https://next-doctor-zcd4.vercel.app/my-bookings/api/booking/${id}`,
         {
           method: "DELETE",
         }

@@ -11,7 +11,7 @@
 
 //   const loadBooking = async () => {
 //     const bookingDetail = await fetch(
-//       `${process.env.NEXT_PUBLIC_BASE_URL}/my-bookings/api/booking/${params.id}`
+//       `https://next-doctor-zcd4.vercel.app/my-bookings/api/booking/${params.id}`
 //     );
 //     const data = await bookingDetail.json();
 //     setBooking(data.data);
@@ -24,7 +24,7 @@
 //       address: event.target.address.value,
 //     };
 //     const resp = await fetch(
-//       `${process.env.NEXT_PUBLIC_BASE_URL}/my-bookings/api/booking/${params.id}`,
+//       `https://next-doctor-zcd4.vercel.app/my-bookings/api/booking/${params.id}`,
 //       {
 //         method: "PATCH",
 //         body: JSON.stringify(updatedBooking),
@@ -161,7 +161,7 @@ const BookingUpdatePage = ({ params }) => {
   const loadBooking = useCallback(async () => {
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/my-bookings/api/booking/${params.id}`
+        `https://next-doctor-zcd4.vercel.app/my-bookings/api/booking/${params.id}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch booking");
@@ -184,7 +184,7 @@ const BookingUpdatePage = ({ params }) => {
 
     try {
       const resp = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/my-bookings/api/booking/${params.id}`,
+        `https://next-doctor-zcd4.vercel.app/my-bookings/api/booking/${params.id}`,
         {
           method: "PATCH",
           body: JSON.stringify(updatedBooking),

@@ -10,7 +10,7 @@ const SignUpForm = () => {
       email: event.target.email.value,
       password: event.target.password.value,
     };
-    const resp = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/signup/api`, {
+    const resp = await fetch(`https://next-doctor-zcd4.vercel.app/signup/api`, {
       method: "POST",
       body: JSON.stringify(newUser),
       headers: {

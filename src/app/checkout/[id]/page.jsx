@@ -28,7 +28,7 @@
 //     };
 
 //     const resp = await fetch(
-//       `${process.env.NEXT_PUBLIC_BASE_URL}/checkout/api/new-booking`,
+//       `https://next-doctor-zcd4.vercel.app/checkout/api/new-booking`,
 //       {
 //         method: "POST",
 //         body: JSON.stringify(newBooking),
@@ -189,7 +189,7 @@ const Checkout = ({ params }) => {
 
     try {
       const resp = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/checkout/api/new-booking`,
+        `https://next-doctor-zcd4.vercel.app/checkout/api/new-booking`,
         {
           method: "POST",
           body: JSON.stringify(newBooking),
