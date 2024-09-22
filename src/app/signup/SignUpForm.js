@@ -10,16 +10,13 @@ const SignUpForm = () => {
       email: event.target.email.value,
       password: event.target.password.value,
     };
-    const resp = await fetch(
-      "https://car-doctor-pro-nine.vercel.app/signup/api",
-      {
-        method: "POST",
-        body: JSON.stringify(newUser),
-        headers: {
-          "content-type": "application/json",
-        },
-      }
-    );
+    const resp = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/signup/api`, {
+      method: "POST",
+      body: JSON.stringify(newUser),
+      headers: {
+        "content-type": "application/json",
+      },
+    });
     if (resp.status === 200) {
       event.target.reset();
     }
