@@ -13,6 +13,7 @@ const page = ({ params }) => {
       `http://localhost:3000/my-bookings/api/booking/${params.id}`
     );
     const data = await bookingDetail.json();
+    console.log(data);
     setBooking(data.data);
   };
   const handleUpdateBooking = () => {};
