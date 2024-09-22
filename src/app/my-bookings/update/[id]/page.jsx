@@ -45,7 +45,7 @@ const page = ({ params }) => {
                 <span className="label-text">Name</span>
               </label>
               <input
-                // defaultValue={data?.user?.name}
+                defaultValue={data?.user?.name}
                 type="text"
                 name="name"
                 className="input input-bordered"
@@ -56,7 +56,7 @@ const page = ({ params }) => {
                 <span className="label-text">Date</span>
               </label>
               <input
-                // defaultValue={booking.date}
+                defaultValue={booking.date}
                 type="date"
                 name="date"
                 className="input input-bordered"
@@ -67,7 +67,7 @@ const page = ({ params }) => {
                 <span className="label-text">Email</span>
               </label>
               <input
-                // defaultValue={data?.user?.email}
+                defaultValue={data?.user?.email}
                 type="text"
                 name="email"
                 placeholder="email"
@@ -79,7 +79,7 @@ const page = ({ params }) => {
                 <span className="label-text">Due amount</span>
               </label>
               <input
-                // defaultValue={booking.price}
+                defaultValue={booking.price}
                 readOnly
                 type="text"
                 name="price"
@@ -91,7 +91,7 @@ const page = ({ params }) => {
                 <span className="label-text">Phone</span>
               </label>
               <input
-                // defaultValue={booking.phone}
+                defaultValue={booking.phone}
                 required
                 type="text"
                 name="phone"
@@ -104,7 +104,7 @@ const page = ({ params }) => {
                 <span className="label-text">Present Address</span>
               </label>
               <input
-                // defaultValue={booking.address}
+                defaultValue={booking.address}
                 type="text"
                 name="address"
                 placeholder="Your Address"
