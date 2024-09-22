@@ -1,3 +1,4 @@
+import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
 export const middleware = async (request) => {
@@ -8,4 +9,8 @@ export const middleware = async (request) => {
     );
   }
   return NextResponse.next();
+};
+
+export const config = {
+  matcher: ["/my-bookings/"],
 };
