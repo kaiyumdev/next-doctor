@@ -1,9 +1,24 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const page = () => {
+const page = ({ params }) => {
+  const { data } = useSession();
+  const [booking, setBooking] = useState([]);
+
+  const loadBooking = async () => {
+    const bookingDetail = await fetch(
+      `http://localhost:3000/my-bookings/api/booking/${params.id}`
+    );
+    const data = await bookingDetail.json();
+    setBooking(data.data);
+  };
   const handleUpdateBooking = () => {};
+  useEffect(() => {
+    loadBooking();
+  }, [params]);
   return (
     <div className="container mx-auto">
       <div className="relative  h-72">
